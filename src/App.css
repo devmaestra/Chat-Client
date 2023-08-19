@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+  
+}
+
+.footer {
+  position: absolute;
+  left:0;
+  bottom:0;
+  right:0;
+  background-color: coral;
+  padding: 1em;
+
+
+}
