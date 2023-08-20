@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
+import Logout from "../auth/logout/Logout";
 
 export default function nav() {
+
+  const [sessionToken, setSessionToken] = useState('');
+
+  // console.log('Token: ', sessionToken)
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      setSessionToken(localStorage.getItem('token'))
+    }
+  }, [])
+  
   return (
     <>
       <Navbar
@@ -10,6 +22,12 @@ export default function nav() {
         dark>
         <NavbarBrand href="/">
           Swolemates
+        </NavbarBrand>
+        <NavbarBrand>
+        {
+          sessionToken !== '' ?
+          <Logout setSessionToken={setSessionToken} /> : null
+        }
         </NavbarBrand>
       </Navbar>
     </>
