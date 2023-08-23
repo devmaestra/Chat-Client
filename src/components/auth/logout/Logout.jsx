@@ -17,17 +17,21 @@ function Logout({setSessionToken}) {
         margin: '5em'
     }
 
-    return (
-        <>
-            <Button
-                color='danger'
-                outline
-                style={style}
-                onClick={logout}
-            >Logout
-            </Button>
-        </>
+    if (setSessionToken === ('token')) {
+        return (
+            <>
+                <Button
+                    color='danger'
+                    outline
+                    style={style}
+                    onClick={logout}
+                >Logout
+                </Button>
+            </>
     )
+    } else {
+        const style = null;
+    }
 }
 
 export default Logout

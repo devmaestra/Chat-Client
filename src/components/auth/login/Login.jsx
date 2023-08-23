@@ -61,7 +61,7 @@ function Login({ updateToken }) {
                     <Input
                         innerRef={passwordRef}
                         type='password'
-                        placeholder='passsword'
+                        placeholder='password'
                     />
                 </FormGroup>
                 <FullButton>

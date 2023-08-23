@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Signup from './signup/Signup'
 import Login from './login/Login';
 import { Button, Col, Container, Row } from 'reactstrap';
+import Logout from './logout/Logout';
 
 function Auth(props) {
 
@@ -17,19 +18,23 @@ function Auth(props) {
         return (
             button === "Login" ?
                 <Row>
-                    <Col md="6">
+                    <Col md="4">
                         <Signup
                             updateToken={props.updateToken}
                         />
                     </Col>
                 </Row> :
                 <Row>
-                    <Col md="6">
+                    <Col md="4">
                         <Login
                             updateToken={props.updateToken}
                         />
                     </Col>
-                </Row>
+                    <Col md="4">
+                        <Logout />
+                    </Col>
+                </Row> 
+
         )
     }
 
