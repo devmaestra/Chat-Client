@@ -1,15 +1,25 @@
 import './App.css';
 import Auth from './components/auth/Auth';
-import { Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom'; 
 import Nav from './components/nav/Nav';
 import Footer from './components/footer/Footer';
+import RoomIndex from './components/room/RoomIndex';
 
 function App() {
+
+  const [sessionToken, setSessionToken ] = useState('');
 
   const updateToken = newToken => {
     localStorage.setItem('token', newToken);
     setSessionToken(newToken);
   }
+
+  useEffect(() => {
+    if(localStorage.getItem('token')) {
+      setSessionToken(localStorage.getItem('token'))
+    }
+  },[])
 
   return (
     <div className="App">
@@ -20,13 +30,13 @@ function App() {
           path='/'
           element={<Auth updateToken={updateToken} />}
           />
-        {/* <Route
+        <Route
           path='/rooms'
-          element={<Display />}>
+          element={<RoomIndex />}>
         </Route>
         <Route>
           
-        </Route> */}
+        </Route>
       </Routes>
     </div>
   );

@@ -15,7 +15,7 @@ function Signup(props) {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        const user = userRef.current.value;
+        const user = userRef.current.value; 
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
