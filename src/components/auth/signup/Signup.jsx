@@ -82,10 +82,8 @@ function Signup(props) {
                     />
                 </FormGroup>
                 <FullButton>
-                    <Button type='submit'>Signup</Button>
-                </FullButton>
-                <FullButton>
-                    <Button type='submit'>Back to Login</Button>
+                    <Button type='submit'
+                    onClick={() => navigate('/login')}>Submit</Button>
                 </FullButton>
             </Form>
         </>
