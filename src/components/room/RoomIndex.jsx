@@ -1,12 +1,60 @@
-import React from 'react'
-import { baseURL } from '../../environments';
+import React, { useEffect, useState } from 'react'
+import RoomAdd from './RoomAdd';
+import RoomDisplay from './RoomDisplay';
+import { baseURL } from '../../environments'
 
-function RoomIndex() {
+function RoomIndex(props) {
 
-    const url = `${baseURL}/room`;
-  return (
-    <div>RoomIndex</div>
-  )
+    const [ rooms, setRooms ] = useState([]);
+
+    const fetchRooms = async () => {
+        const url = `${baseURL}/rooms`;
+
+        const requestOption = {
+            method: 'GET',
+            headers: new Headers({
+                "Authorization": props.token
+            })
+        }
+
+        try {
+            
+            const res = await fetch(url, requestOption);
+            const data = await res.json();
+
+            setRooms(data.getAllRooms)
+
+        } catch (err) {
+            console.error(err.message)
+        }
+    }
+
+    useEffect(() => {
+        if(props.token) {
+            fetchRooms()
+        }
+    }, [props.token])
+
+    return (
+        <>
+            <Container>
+                <Row>
+                    <Col md="4">
+                        <RoomAdd
+                            token={props.token}
+                            fetchRooms={fetchRooms}
+                        />
+                    </Col>
+                    <Col md="8" >
+                        <RoomDisplay 
+                            token={props.token}
+                            fetchRooms={fetchRooms}
+                            rooms={rooms} />
+                    </Col>
+                </Row>
+            </Container>
+        </>
+    )
 }
 
 export default RoomIndex

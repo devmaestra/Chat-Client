@@ -25,7 +25,7 @@ function Signup(props) {
             password: password
         })
 
-        const url = `http://localhost:3000/user/signup`;
+        const url = `http://localhost:3000/signup`;
 
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
@@ -82,10 +82,8 @@ function Signup(props) {
                     />
                 </FormGroup>
                 <FullButton>
-                    <Button type='submit'>Signup</Button>
-                </FullButton>
-                <FullButton>
-                    <Button type='submit'>Back to Login</Button>
+                    <Button type='submit'
+                    onClick={() => navigate('/login')}>SUBMIT</Button>
                 </FullButton>
             </Form>
         </>

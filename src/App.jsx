@@ -31,6 +31,14 @@ function App() {
           path='/'
           element={<Auth updateToken={updateToken} />}
         />
+        <Route
+          path='/signup'
+          element={<Auth updateToken={updateToken} />}
+        />
+        <Route
+          path='/rooms'
+          element={<Auth updateToken={updateToken} />}
+        />
       </Routes>
     </div>
   );

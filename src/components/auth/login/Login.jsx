@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { FormGroup, Input, Form, Button } from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import FullButton from '../../buttons/FullButton';
 
 function Login({ updateToken }) {
@@ -20,7 +21,7 @@ function Login({ updateToken }) {
             email, password
         })
 
-        const url = 'http://localhost:3000/user/login';
+        const url = 'http://localhost:3000/login';
 
         try {
 
