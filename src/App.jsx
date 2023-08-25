@@ -32,7 +32,7 @@ function App() {
           />
         <Route
           path='/rooms'
-          element={<RoomIndex />}>
+          element={<RoomIndex token={sessionToken} />}>
         </Route>
         <Route>
           
