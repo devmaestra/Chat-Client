@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom'; 
 import Nav from './components/nav/Nav';
 import Footer from './components/footer/Footer';
-import RoomIndex from './components/room/RoomIndex';
+import RoomDisplay from './components/room/RoomIndex';
 
 function App() {
 
@@ -31,8 +31,8 @@ function App() {
           element={<Auth updateToken={updateToken} />}
           />
         <Route
-          path='/rooms'
-          element={<RoomIndex token={sessionToken} />}>
+          path='/room'
+          element={<RoomDisplay token={sessionToken} />}>
         </Route>
         <Route>
           

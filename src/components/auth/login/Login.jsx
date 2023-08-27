@@ -15,7 +15,6 @@ function Login({ updateToken }) {
 
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        console.log(password);
 
         const url = 'http://localhost:4005/user/login';
 
@@ -32,7 +31,6 @@ function Login({ updateToken }) {
             })
 
             const data = await res.json();
-            console.log(data);
 
             if (data.message === 'Success!') {
                 updateToken(data.token)

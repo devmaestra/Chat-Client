@@ -23,7 +23,6 @@ function RoomIndex(props) {
           const res = await fetch(url, requestOption);
           const data = await res.json();
 
-          // console.log(data);
           setRooms(data.getAllRooms)
           
       } catch (err) {
@@ -57,7 +56,6 @@ return (
               </Col>
           </Row>
       </Container>
-  
   </>
 )
 }
