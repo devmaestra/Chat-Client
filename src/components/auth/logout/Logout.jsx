@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from 'reactstrap'
+import FullButton from '../../buttons/FullButton';
 
 function Logout({setSessionToken}) {
 
@@ -20,13 +21,15 @@ function Logout({setSessionToken}) {
     if (setSessionToken === ('token')) {
         return (
             <>
-                <Button
-                    color='danger'
-                    outline
-                    style={style}
-                    onClick={logout}
-                >Logout
-                </Button>
+                <FullButton>
+                    <Button
+                        color='danger'
+                        outline
+                        style={style}
+                        onClick={logout}
+                    >Logout
+                    </Button>
+                </FullButton>
             </>
     )
     } else {
