@@ -25,7 +25,7 @@ function Signup(props) {
             password: password
         })
 
-        const url = `http://localhost:3000/user/signup`;
+        const url = `http://localhost:4005/user/signup`;
 
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
@@ -43,7 +43,7 @@ function Signup(props) {
         
             if(data.message === "Success!") {
                 props.updateToken(data.token)
-                navigate('/login');
+                navigate('/');
             } else {
                 alert(data.message)
             }
