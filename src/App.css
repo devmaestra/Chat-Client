@@ -1,5 +1,6 @@
 .App {
     text-align: center;
+
 }
 
 .footer {
@@ -9,4 +10,6 @@
     right: 0;
     background-color: coral;
     padding: 1em;
+
+
 }

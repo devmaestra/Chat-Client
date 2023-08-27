@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { FormGroup, Input, Form, Button } from 'reactstrap';
 import { useNavigate } from 'react-router-dom';
-import { Routes, Route } from 'react-router-dom';
 import FullButton from '../../buttons/FullButton';
 
 function Login({ updateToken }) {
@@ -17,11 +16,7 @@ function Login({ updateToken }) {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-        let body = JSON.stringify({
-            email, password
-        })
-
-        const url = 'http://localhost:3000/login';
+        const url = 'http://localhost:4005/user/login';
 
         try {
 
@@ -30,7 +25,9 @@ function Login({ updateToken }) {
                 headers: new Headers({
                     "Content-Type": 'application/json'
                 }),
-                body: body
+                body: JSON.stringify({
+                    email, password
+                })
             })
 
             const data = await res.json();
@@ -69,7 +66,7 @@ function Login({ updateToken }) {
                     <Button type='submit'>Login</Button>
                 </FullButton>
                 <FullButton>
-                    <Button type='submit'>Create Account</Button>
+                    <Button type='button'>create account</Button>
                 </FullButton>
             </Form>
         </>

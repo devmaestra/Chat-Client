@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import Signup from './signup/Signup';
+import React, { useState } from 'react'
+import Signup from './signup/Signup'
 import Login from './login/Login';
 import { Button, Col, Container, Row } from 'reactstrap';
 import Logout from './logout/Logout';
 
 function Auth(props) {
-    
+
     const [button, setButton] = useState('Signup')
 
     const swapForm = () => {
@@ -33,7 +33,8 @@ function Auth(props) {
                     <Col md="4">
                         <Logout />
                     </Col>
-                </Row>
+                </Row> 
+
         )
     }
 

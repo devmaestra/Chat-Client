@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import RoomAdd from './RoomAdd';
+import { Col, Container, Row } from 'reactstrap';
 import RoomDisplay from './RoomDisplay';
-import { baseURL } from '../../environments'
+import { baseURL } from '../../environments';
 
 function RoomIndex(props) {
 
-    const [ rooms, setRooms ] = useState([]);
+    const [rooms, setRooms] = useState([]);
 
     const fetchRooms = async () => {
-        const url = `${baseURL}/rooms`;
+        const url = `${baseURL}/room`;
 
         const requestOption = {
             method: 'GET',
@@ -18,7 +19,7 @@ function RoomIndex(props) {
         }
 
         try {
-            
+
             const res = await fetch(url, requestOption);
             const data = await res.json();
 
@@ -29,8 +30,10 @@ function RoomIndex(props) {
         }
     }
 
+
+
     useEffect(() => {
-        if(props.token) {
+        if (props.token) {
             fetchRooms()
         }
     }, [props.token])
@@ -46,10 +49,10 @@ function RoomIndex(props) {
                         />
                     </Col>
                     <Col md="8" >
-                        <RoomDisplay 
+                        <RoomDisplay
                             token={props.token}
-                            fetchRooms={fetchRooms}
-                            rooms={rooms} />
+                            rooms={rooms}
+                            fetchRooms={fetchRooms} />
                     </Col>
                 </Row>
             </Container>

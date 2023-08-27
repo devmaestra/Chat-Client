@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 function Signup(props) {
-
+    
     const userRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
@@ -15,7 +15,7 @@ function Signup(props) {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        const user = userRef.current.value;
+        const user = userRef.current.value; 
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
@@ -25,7 +25,7 @@ function Signup(props) {
             password: password
         })
 
-        const url = `http://localhost:3000/signup`;
+        const url = `http://localhost:4005/user/signup`;
 
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
@@ -40,10 +40,10 @@ function Signup(props) {
 
             const response = await fetch(url, requestOptions);
             const data = await response.json();
-
+        
             if(data.message === "Success!") {
                 props.updateToken(data.token)
-                navigate('/login');
+                navigate('/');
             } else {
                 alert(data.message)
             }
@@ -57,14 +57,14 @@ function Signup(props) {
         <>
             <h2>Signup</h2>
             <Form onSubmit={handleSubmit}>
-                <FormGroup className= "inputBubble" floating>
+                <FormGroup className="inputBubble" floating>
                     <Input
                         innerRef={userRef}
-                        placeholder='Your Name Here {FIRST, LAST}'
+                        placeholder='Your Name Here (FIRST, LAST)'
                         name='userName'
                         type='text'
                     />
-                    <Label for='userNameSignup'>Username</Label>
+                    <Label for='userNameSignup'>User Name</Label>
                 </FormGroup>
                 <FormGroup>
                     <Label>Email</Label>
@@ -83,7 +83,7 @@ function Signup(props) {
                 </FormGroup>
                 <FullButton>
                     <Button type='submit'
-                    onClick={() => navigate('/login')}>SUBMIT</Button>
+                    onClick={() => navigate('/login')}>Submit</Button>
                 </FullButton>
             </Form>
         </>
