@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import Logout from "../auth/logout/Logout";
 
-export default function nav() {
+export default function Nav() {
 
   const [sessionToken, setSessionToken] = useState('');
 
