@@ -1,18 +1,12 @@
 import React, { useState } from 'react'
 import Signup from './signup/Signup'
 import Login from './login/Login';
-import { Button, Col, Container, Row } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import Logout from './logout/Logout';
 
 function Auth(props) {
 
-    const [button, setButton] = useState('Signup')
-
-    const swapForm = () => {
-        button === "Login" ?
-            setButton('Signup') :
-            setButton('Login')
-    }
+    const [button] = useState('Create Account')
 
     const displayForm = () => {
         return (
@@ -37,15 +31,6 @@ function Auth(props) {
 
         )
     }
-
-    return (
-        <>
-            <Button onClick={swapForm} color='dark'>{button}</Button>
-            <Container>
-                {displayForm()}
-            </Container>
-        </>
-    )
 }
 
 export default Auth

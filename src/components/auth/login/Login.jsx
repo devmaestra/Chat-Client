@@ -10,6 +10,11 @@ function Login({ updateToken }) {
 
     const navigate = useNavigate();
 
+    const routeChange = () => {
+        let path = `/signup`;
+        navigate(path);
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -34,7 +39,7 @@ function Login({ updateToken }) {
 
             if (data.message === 'Success!') {
                 updateToken(data.token)
-                navigate('/room')
+                navigate('/room/')
             } else {
                 alert(data.message);
             }
@@ -66,8 +71,9 @@ function Login({ updateToken }) {
                     <Button type='submit'>Login</Button>
                 </FullButton>
                 <FullButton>
-                    <Button type='button'>create account</Button>
+                    <Button onClick={routeChange} color='dark'>Create Account</Button>
                 </FullButton>
+
             </Form>
         </>
     )
