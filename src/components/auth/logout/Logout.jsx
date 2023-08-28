@@ -37,4 +37,5 @@ function Logout({setSessionToken}) {
     }
 }
 
+
 export default Logout
