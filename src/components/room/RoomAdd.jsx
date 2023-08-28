@@ -40,10 +40,10 @@ function RoomAdd(props) {
                   Coding Room
                 </ListGroupItem>
                 <ListGroupItem action href="#" tag="a">
-                  Jobs Room
+                  Job Room
                 </ListGroupItem>
                 <ListGroupItem action href="#" tag="a">
-                  General
+                  Cat Room
                 </ListGroupItem>
               </ListGroup>
             </div>
