@@ -10,12 +10,7 @@ function Logout({setSessionToken}) {
     const logout = () => {
         localStorage.removeItem('token')
         setSessionToken('') 
-        navigate('/')
-    }
-
-    const style = {
-        float: 'right',
-        margin: '5em'
+        navigate('/login')
     }
 
     if (setSessionToken === ('token')) {
@@ -25,7 +20,6 @@ function Logout({setSessionToken}) {
                     <Button
                         color='danger'
                         outline
-                        style={style}
                         onClick={logout}
                     >Logout
                     </Button>

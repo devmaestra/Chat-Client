@@ -10,6 +10,11 @@ function Login({ updateToken }) {
 
     const navigate = useNavigate();
 
+    const routeChange = () => {
+        let path = `/signup`;
+        navigate(path);
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -46,7 +51,8 @@ function Login({ updateToken }) {
 
     return (
         <>
-            <h2>React Chat Login</h2>
+            <h2>WELCOME!</h2>
+            <br />
             <Form onSubmit={handleSubmit}>
                 <FormGroup >
                     <Input
@@ -63,10 +69,10 @@ function Login({ updateToken }) {
                     />
                 </FormGroup>
                 <FullButton>
-                    <Button type='submit'>Login</Button>
+                    <Button type='submit'>SUBMIT</Button>
                 </FullButton>
                 <FullButton>
-                    <Button type='button'>create account</Button>
+                    <Button onClick={routeChange} color='dark'>Create Account</Button>
                 </FullButton>
             </Form>
         </>

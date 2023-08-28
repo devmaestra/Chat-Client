@@ -5,6 +5,8 @@ import { Routes, Route } from 'react-router-dom';
 import Nav from './components/nav/Nav';
 import Footer from './components/footer/Footer';
 import RoomDisplay from './components/room/RoomIndex';
+import Login from './components/auth/login/Login';
+import Signup from './components/auth/signup/Signup';
 
 function App() {
 
@@ -26,16 +28,21 @@ function App() {
       <Nav />
       <Footer />
       <Routes>
-        <Route
+{/*         <Route
           path='/'
           element={<Auth updateToken={updateToken} />}
+          /> */}
+        <Route
+          path='/login'
+          element={<Login updateToken={updateToken} />}
+          />
+        <Route
+          path='/signup'
+          element={<Signup updateToken={updateToken} />}
           />
         <Route
           path='/room'
           element={<RoomDisplay token={sessionToken} />}>
-        </Route>
-        <Route>
-          
         </Route>
       </Routes>
     </div>

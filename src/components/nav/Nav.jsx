@@ -21,7 +21,7 @@ export default function Nav() {
             color="secondary" 
             dark>
             <NavbarBrand 
-            href="/">Swolemates
+            href="/">Chatter Bug
             </NavbarBrand>
             <NavbarBrand>
               {

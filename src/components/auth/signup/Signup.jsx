@@ -5,17 +5,22 @@ import { useNavigate } from 'react-router-dom';
 
 
 function Signup(props) {
-    
+
     const userRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
 
     const navigate = useNavigate();
 
+    const routeChange = () => {
+        let path = `/login`;
+        navigate(path);
+    }
+
     async function handleSubmit(e) {
         e.preventDefault();
 
-        const user = userRef.current.value; 
+        const user = userRef.current.value;
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
@@ -40,8 +45,8 @@ function Signup(props) {
 
             const response = await fetch(url, requestOptions);
             const data = await response.json();
-        
-            if(data.message === "Success!") {
+
+            if (data.message === "Success!") {
                 props.updateToken(data.token)
                 navigate('/');
             } else {
@@ -55,16 +60,17 @@ function Signup(props) {
 
     return (
         <>
-            <h2>Signup</h2>
+            <h2>CREATE ACCOUNT</h2>
+            <br />
             <Form onSubmit={handleSubmit}>
-                <FormGroup className="inputBubble" floating>
+                <FormGroup>
+                    <Label for='userNameSignup'>Username</Label>
                     <Input
                         innerRef={userRef}
-                        placeholder='Your Name Here (FIRST, LAST)'
                         name='userName'
                         type='text'
+                        placeholder='Full Name'
                     />
-                    <Label for='userNameSignup'>User Name</Label>
                 </FormGroup>
                 <FormGroup>
                     <Label>Email</Label>
@@ -79,11 +85,15 @@ function Signup(props) {
                     <Input
                         innerRef={passwordRef}
                         type='password'
+                        placeholder='******'
                     />
                 </FormGroup>
                 <FullButton>
                     <Button type='submit'
-                    onClick={() => navigate('/login')}>Submit</Button>
+                        onClick={() => navigate('')}>SUBMIT</Button>
+                </FullButton>
+                <FullButton>
+                    <Button onClick={routeChange} color='dark'>Back to Login</Button>
                 </FullButton>
             </Form>
         </>
