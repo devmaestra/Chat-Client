@@ -10,7 +10,7 @@ function Logout({setSessionToken}) {
     const logout = () => {
         localStorage.removeItem('token')
         setSessionToken('') 
-        navigate('/')
+        navigate('/login')
     }
 
     const style = {

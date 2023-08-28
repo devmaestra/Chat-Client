@@ -19,7 +19,7 @@ function Signup(props) {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-        let bodyObj = JSON.stringify({
+        let body = JSON.stringify({
             user: user,
             email: email,
             password: password
@@ -32,7 +32,7 @@ function Signup(props) {
 
         const requestOptions = {
             headers,
-            body: bodyObj,
+            body: body,
             method: 'POST'
         }
 
@@ -55,16 +55,17 @@ function Signup(props) {
 
     return (
         <>
-            <h2>Signup</h2>
+            <h2>CREATE ACCOUNT</h2>
+            <br />
             <Form onSubmit={handleSubmit}>
-                <FormGroup className="inputBubble" floating>
+                <FormGroup>
+                    <Label for='userNameSignup'>User Name</Label>
                     <Input
                         innerRef={userRef}
-                        placeholder='Your Name Here (FIRST, LAST)'
                         name='userName'
                         type='text'
+                        placeholder='Full Name'
                     />
-                    <Label for='userNameSignup'>User Name</Label>
                 </FormGroup>
                 <FormGroup>
                     <Label>Email</Label>
@@ -79,11 +80,12 @@ function Signup(props) {
                     <Input
                         innerRef={passwordRef}
                         type='password'
+                        placeholder='******'
                     />
                 </FormGroup>
                 <FullButton>
                     <Button type='submit'
-                    onClick={() => navigate('/login')}>Submit</Button>
+                    onClick={() => navigate('/room')}>Submit</Button>
                 </FullButton>
             </Form>
         </>
