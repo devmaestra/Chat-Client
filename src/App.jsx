@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Nav from './components/nav/Nav';
 import Footer from './components/footer/Footer';
 import RoomDisplay from './components/room/RoomIndex';
+/* import MessageDisplay from './components/message/MessageDisplay'; */
 import Login from './components/auth/login/Login';
 import Signup from './components/auth/signup/Signup';
 
@@ -44,6 +45,10 @@ function App() {
           path='/room'
           element={<RoomDisplay token={sessionToken} />}>
         </Route>
+{/*         <Route
+          path='/message'
+          element={<MessageDisplay token={sessionToken} />}>
+        </Route> */}
       </Routes>
     </div>
   );
